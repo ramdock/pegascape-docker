@@ -29,4 +29,5 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         push: true
+        platforms: all
         tags: ramdockerapp/pegascape:latest,ramdockerapp/pegascape:${{ env.DATE_TAG }}
