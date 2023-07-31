@@ -1,4 +1,4 @@
-FROM node:14.21.3-bullseye-slim as builder
+FROM node:14.21.3-bullseye-slim AS builder
 
 LABEL maintainer="marcel@marquez.fr"
 
@@ -18,7 +18,7 @@ ARG HOST_IP=192.168.0.1
 ENV HOST_IP $HOST_IP
 
 EXPOSE 80
-EXPOSE 53
+EXPOSE 53/UDP
 EXPOSE 8100
 
 ENTRYPOINT ["/bin/sh", "pegascape.sh", "&"]
