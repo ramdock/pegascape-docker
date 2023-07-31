@@ -4,7 +4,7 @@ LABEL maintainer="marcel@marquez.fr"
 
 WORKDIR /opt/app
 RUN apt update && apt install git python build-essential -y
-RUN git clone https://github.com/Ramzus/pegaswitch.git .
+RUN git clone https://github.com/Ramzus/pegascape.git .
 RUN npm install
 
 COPY pegascape.sh /opt/app
