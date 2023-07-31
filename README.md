@@ -1,3 +1,9 @@
+## Why a docker image for Pegascape
+
+Pegascape can sometimes be unavailable. And as nothing is eternal, it could be completely down in a near future.
+To add more possibilities for users who still use deja-vu exploit to hack their switch, this container image aims to make pegascape easily self-hostable.
+As a bonus, the execution of deja-vu exploit is quicker and more stable when used from a local appliance.
+
 ## Build image
 
 Build pegascape image is as simple as using docker build.
@@ -15,7 +21,7 @@ Pegascape must be exposed on
 
 _**-t** options is needed to attach a tty to container, in order to keep alive the node command_
 
-## Configure SWITCH to access pegascape
+## Configure switch to access pegascape
 
 Modify your internet configuration on switch to use as primary and secondary the host IP of the machine which is used to launch pegascape.
 You won't be able to access to internet with this configuration, but pegascape will still be available in order to launch the deja-vu exploit.
