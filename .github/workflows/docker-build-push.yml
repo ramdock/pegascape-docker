@@ -10,6 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
+
     steps:
     - name: set env variables
       run: |
@@ -29,5 +36,5 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         push: true
-        platforms: all
+        platforms: ${{ matrix.platform }}
         tags: ramdockerapp/pegascape:latest,ramdockerapp/pegascape:${{ env.DATE_TAG }}
