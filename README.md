@@ -12,7 +12,7 @@ Build pegascape image is as simple as using docker build.
 
 ## Launch container
 
-`docker run -p 80:80 -p 53:53/udp -p 8100:8100 -e HOST_IP=<YOUR_DOCKER_HOST_IP> -d -t ramdockerapp/pegascape:1.0.0`
+`docker run -p 80:80 -p 53:53/udp -p 8100:8100 -e HOST_IP=<YOUR_DOCKER_HOST_IP> -d -t ramdockerapp/pegascape:latest`
 
 Pegascape must be exposed on
  - port 80 in order to reach frontend
