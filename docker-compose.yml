@@ -1,0 +1,30 @@
+
+services:
+  pegascape:
+    build: .
+    container_name: pegascape
+    tty: true
+    ports:
+      - "80:80"        # Web interface
+      - "53:53/udp"    # DNS server
+      - "8100:8100"    # Exploit server
+    environment:
+      - HOST_IP=${HOST_IP:-192.168.1.100}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "./healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - pegascape-net
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp:noexec,nosuid,size=50m
+
+networks:
+  pegascape-net:
+    driver: bridge
